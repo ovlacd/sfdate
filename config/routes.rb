@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  get "events/create"
+  get "events/index"
   resources :users do
     member do
       get :following, :followers
@@ -14,6 +16,8 @@ SampleApp::Application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/events', to: 'events#show', via: 'get'
+  match '/events', to: 'events#create',  via: 'post'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

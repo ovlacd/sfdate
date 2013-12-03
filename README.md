@@ -1,5 +1,3 @@
-# Ruby on Rails Tutorial: sample application
+# SF DATE by Raw Doggs
 
-This is the sample application for
-the [*Ruby on Rails Tutorial*](http://railstutorial.org/)
-by [A.Beshue].
+This is the Sample App for SF DATE.

@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :signed_in_user, only: [:show]
+
   def index
   	@app = Events.where("month = ? AND year = ?", params[:month], params[:year])
   	render:json => @app
@@ -6,6 +8,11 @@ class EventsController < ApplicationController
 
   def show
   end
+
+  def show_user
+    @user = current_user
+    render:json => @user
+  end 
 
   def create
   	@app = Events.new(app_params)
@@ -16,6 +23,9 @@ class EventsController < ApplicationController
   private
 
   def app_params
-  	params.require(:events).permit(:event, :day, :time, :month, :year)
+  	params.require(:apps).permit(:event, :day, :time, :month, :year)
   end
+  private
+
+
 end
